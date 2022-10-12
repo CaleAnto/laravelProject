@@ -15,9 +15,11 @@ class CreateShopsTable extends Migration
     {
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
+            $table->text('image');
             $table->string('Name', 255);
             $table->integer('Price');
             $table->integer('Count');
+            $table->foreignId('product_id');
         });
     }
 

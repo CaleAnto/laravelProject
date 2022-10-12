@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Stock extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'IDStock';
     public $timestamps = false;
-    protected $fillable = ['IDStock', 'Address', 'FreeCounts'];
+    protected $fillable = ['id', 'Address', 'FreeCounts'];
 }

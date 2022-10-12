@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [\App\Http\Controllers\StockController::class, 'main']);
-
 Route::get('/index', [\App\Http\Controllers\StockController::class, 'main']);
 
 Route::get('/create', function () {
@@ -20,15 +19,14 @@ Route::get('/view', [\App\Http\Controllers\shopController::class, 'index']);
 Route::get('/one/{id}', [\App\Http\Controllers\shopController::class, 'viewProduct']);
 
 Route::get('/eShop/{stock}', [\App\Http\Controllers\shopController::class, 'editShop']);
-Route::get('/eProduct/{stock}', [\App\Http\Controllers\shopController::class, 'editProduct']);
 Route::post('/uShop/{stock}', [\App\Http\Controllers\shopController::class, 'updateShop']);
-Route::post('/uProduct/{stock}', [\App\Http\Controllers\shopController::class, 'updateProduct']);
 
-Route::get('/createProduct', function () {
-    return view('createShop');
-});
+Route::get('/createShop', [\App\Http\Controllers\StockController::class, 'creations']);
 Route::post('/cShop', [\App\Http\Controllers\shopController::class, 'createShop']);
-Route::post('/cProduct', [\App\Http\Controllers\shopController::class, 'createProduct']);
 
 Route::get('/del/{product}', [\App\Http\Controllers\shopController::class, 'destroyProduct']);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

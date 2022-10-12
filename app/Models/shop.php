@@ -10,5 +10,5 @@ class shop extends Model
     use HasFactory;
     public $timestamps = false;
 
-    protected $fillable = ['id', 'Name', 'Price', 'Count'];
+    protected $fillable = ['id', 'image', 'Name', 'Price', 'Count', 'product_id'];
 }

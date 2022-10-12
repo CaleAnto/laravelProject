@@ -27,6 +27,11 @@ class StockController extends Controller
         return view('editStock', ['stock' => $stock]);
     }
 
+    public function creations(){
+        $allstoks = Stock::all();
+        return view('createShop',  ['stock' => $allstoks]);
+    }
+
     public function updateStock(Request $request, Stock $stock){
         $stock->update([
             'Address' => $request->address,
