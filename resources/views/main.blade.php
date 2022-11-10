@@ -77,7 +77,9 @@
                 <th scope="col">ID</th>
                 <th scope="col">Address</th>
                 <th scope="col">Free Counts</th>
+                @if (Auth::check())
                 <th scope="col">Action</th>
+                @endif
             </tr>
             </thead>
             <tbody>
@@ -87,8 +89,10 @@
                 <td>{{$stocks->Address}}</td>
                 <td>{{$stocks->FreeCounts}}</td>
                 <td>
-                    <a type="button" class="btn btn-success" href="/edit/{{$stocks-> IDStock}}">Edit</a>
-                    <a type="button" class="btn btn-danger" href="/delete/{{$stocks-> IDStock}}">Delete</a>
+                    @if (Auth::check())
+                    <a type="button" class="btn btn-success" href="/edit/{{$stocks-> id}}">Edit</a>
+                    <a type="button" class="btn btn-danger" href="/delete/{{$stocks-> id}}">Delete</a>
+                    @endif
                 </td>
 
             </tr @endforeach>

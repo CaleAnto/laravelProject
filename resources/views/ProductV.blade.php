@@ -101,7 +101,9 @@
             <td>{{$products -> Count}}</td>
             <td>
                 <a type="button" class="btn btn-success" href="/one/{{$products-> id}}">View</a>
+                @if (Auth::check())
                 <a type="button" class="btn btn-danger" href="/del/{{$products-> id}}">Delete</a>
+                @endif
             </td>
 
         </tr>

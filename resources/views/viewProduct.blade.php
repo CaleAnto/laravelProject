@@ -10,6 +10,12 @@
 
     <title>Home Company</title>
     <link rel="stylesheet" href="css/light-style1.css" id="style">
+    <style>
+        img {
+            width: 250px;
+            height: 250px;
+        }
+    </style>
 </head>
 <body>
 
@@ -70,6 +76,7 @@
 </nav>
 <br>
 <div class="container-fluid">
+    <img src="{{asset('/storage/'.$shop->image)}}">
     <ul class="list-group">
         <li class="list-group-item">Name: {{$shop -> Name}}</li>
         <li class="list-group-item">Price: {{$shop -> Price}}</li>
@@ -79,7 +86,9 @@
         <li class="list-group-item">Purchase Price: {{$product -> PurchasePrice}}</li>
         <li class="list-group-item">Stock ID: {{$stock -> Address}}</li>
     </ul>
-    <a type="button" class="btn btn-success" href="/eShop/{{$product -> id}}">Edit</a>
+    @if (Auth::check())
+    <a type="button" class="btn btn-success" href="/eShop/{{$shop -> id}}">Edit</a>
+    @endif
 </div>
 
 

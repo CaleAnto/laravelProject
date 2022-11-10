@@ -118,7 +118,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <input type="submit" class="btn btn-success" value="Next Stage">
+            <input type="submit" class="btn btn-success" value="Submite">
         </div>
     </form>
 

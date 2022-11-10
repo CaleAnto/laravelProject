@@ -18,8 +18,8 @@ class shopController extends Controller
     }
 
     public function viewProduct( int $id) {
-        $prodV = DB::table('products')->where('id', $id)->first();
         $shopV = DB::table('shops')->where('id', $id)->first();
+        $prodV = DB::table('products')->where('id', $shopV->product_id)->first();
         $stockV = DB::table('stocks')->where('id', $prodV->stock_id)->first();
 
         return view('viewProduct', ['shop' => $shopV, 'product' => $prodV, 'stock' => $stockV]);
@@ -51,7 +51,7 @@ class shopController extends Controller
 
     public function editShop(int $id){
         $shop = DB::table('shops')->where('id', $id)->first();
-        $product = DB::table('products')->where('id', $id)->first();
+        $product = DB::table('products')->where('id', $shop->product_id)->first();
         $stock = DB::table('stocks')->select('*')->get();
         return view('updateShop', ['shop' => $shop, 'product' => $product, 'stock' => $stock]);
     }
@@ -75,9 +75,10 @@ class shopController extends Controller
     public function destroyProduct(int $id){
         $product = shop::find($id);
         unlink(public_path('/storage/'.$product->image));
+        DB::table('products')->where('id', $product->product_id)->delete();
         $product -> delete();
 
-        DB::table('products')->where('id', $id)->delete();
+
 
         return redirect('/view');
     }

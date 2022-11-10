@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\BlogService;
+use App\Services\Impl\BlogServiceImpl;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(BlogService::class, BlogServiceImpl::class);
     }
 
     /**
