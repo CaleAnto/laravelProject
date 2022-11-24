@@ -14,6 +14,9 @@ class StockResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'Address'=>$this->Address,
+            'Counts'=>$this->FreeCounts
+        ];
     }
 }

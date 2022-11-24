@@ -4,9 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\StockResource;
-use App\Models\Stock;
 use App\Services\BlogService;
-use App\Services\Impl\BlogServiceImpl;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -37,7 +35,5 @@ class BlogController extends Controller
     public function destroy($id){
         $this->blogService->delete($id);
     }
-
-
 
 }
